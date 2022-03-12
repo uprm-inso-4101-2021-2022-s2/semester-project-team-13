@@ -14,3 +14,8 @@ def index(request):
         'mod_list': mod_list,
     }
     return HttpResponse(template.render(context, request))
+
+def LoginForm(request):
+    mod_list = Mod.objects.order_by('mod_title')[:5]
+    template = loader.get_template('mods/LoginForm.html')
+    return HttpResponse(template.render(None, request))
