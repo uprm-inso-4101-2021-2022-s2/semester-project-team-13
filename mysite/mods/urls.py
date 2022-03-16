@@ -7,5 +7,7 @@ urlpatterns = [
     path('LoginForm.html', views.LoginForm, name ='LoginForm'),
     path('dashboard.html', views.dashboard, name ='dashboard'),
     path('register.html', views.register, name ='register'),
+    path('modList.html', views.modList, name = 'modList'),
+    path('<int:mod_id>/', views.modDetails, name = 'details')
 
 ]

@@ -43,5 +43,19 @@ def register(request):
             template = loader.get_template('mods/dashboard.html')
             return HttpResponse(template.render(None, request))
 
-        # template = loader.get_template('mods/dashboard.html')
-        # return HttpResponse(template.render(None, request))
+
+def modList(request):
+    mod_list = Mod.objects.order_by('mod_title')[:5]
+    template = loader.get_template('mods/modList.html')
+    context = {
+        'mod_list': mod_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def modDetails(request, mod_id):
+    try:
+        mod = Mod.objects.get(pk=mod_id)
+    except Mod.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'mods/details.html', {'mod' : mod})
