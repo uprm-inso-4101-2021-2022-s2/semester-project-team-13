@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModAlley Mod List</title> <!--name pf project/website-->
-    <link rel="stylesheet" href="/">
 
-</head>
-<body>
-    <!--<h1>Hey there</h1>--> <!--This Line is like saying hello world-->
-    <nav class="navbar">    <!--navbar class contains other sections below where one can interact with stuff-->
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">NEXT</a>
-            <div class="navbar__toggle" id="mobile-menu"></div>
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="navbar__menu"></ul> <!--This here seems to be the piece which then contains the other interactible links-->
-            <li class="navbar__item"></li>
-                <a href="/" class="navbar__links">Home</a>
-            <li class="navbar__item"></li>
-                <a href="/tech.html" class="navbar__links">Tech</a>
-            <li class="navbar__btn"></li>
-                <a href="LoginForm.html" class="button">Sign Up</a>
-    </nav>
-</body>
-</html>
+    <ul>
+
+        <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_title }}</a></li>
+         <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_author }}</a></li>
+         <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_game }}</a></li>
+         <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_source }}</a></li>
+         <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_description }}</a></li>
+
+    </ul>
