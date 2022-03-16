@@ -40,5 +40,8 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect(reverse("dashboard"))
+            template = loader.get_template('mods/dashboard.html')
+            return HttpResponse(template.render(None, request))
+
+        # template = loader.get_template('mods/dashboard.html')
+        # return HttpResponse(template.render(None, request))
