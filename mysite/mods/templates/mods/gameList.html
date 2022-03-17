@@ -1,0 +1,9 @@
+{% if mod_list %}
+    <ul>
+    {% for mod in mod_list %}
+        <li><a href="/mods/{{ mod.id }}/">{{mod.mod_game}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No games are available.</p>
+{% endif %}

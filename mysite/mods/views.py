@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import Mod
 from django.template import loader
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.http import HttpResponse
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, SearchForm
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.views.generic import TemplateView, ListView
 # Create your views here.
 # from mysite.mods.models import Mod
 
@@ -52,18 +53,45 @@ def modList(request):
     }
     return HttpResponse(template.render(context, request))
 
+def gameList(request):
+    mod_list = Mod.objects.order_by('mod_game')[:5]
+    template = loader.get_template('mods/gameList.html')
+    context = {
+        'mod_list': mod_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
 
 def modDetails(request, mod_id):
     try:
         mod = Mod.objects.get(pk=mod_id)
     except Mod.DoesNotExist:
-        raise Http404("Question does not exist")
+        raise Http404("Mod does not exist")
     return render(request, 'mods/details.html', {'mod' : mod})
 
-def About(request):
-    template = loader.get_template('mods/About.html')
-    return HttpResponse(template.render(None, request))
 
 def About(request):
     template = loader.get_template('mods/About.html')
     return HttpResponse(template.render(None, request))
+
+
+def search(request):
+    if request.method == "GET":
+        form = SearchForm()
+        return render(
+            request, "mods/search.html",
+            {"form": SearchForm}
+        )
+    elif request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('mods/search_results.html')
+        # mod_list = Mod.objects.filter_by(mod_game='Minecraft')[:5]
+        # template = loader.get_template('mods/search_results.html')
+        # context = {
+        #     'mod_list': mod_list,
+        # }
+        # return HttpResponse(template.render(context, request))
+
