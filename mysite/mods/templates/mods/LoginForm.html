@@ -6,10 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login Form</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'mods/Styling.css' %}">    <!--href="Styling.css"-->
+        <link rel="stylesheet" type="text/css" href="{% static 'mods/LoginFormStyle.css' %}"> <!--href="{% static 'mods/LoginFormStyling.css' %}"-->    <!--href="LoginFormStyling.css"-->
     </head>    
+
     <body>
-        <h2>Login Page</h2><br>    
+        <div id="Announcement" class="box-outer">
+            <div id="boxbar">
+                <h2>Login Page</h2>
+            <br> 
+            </div>
+        </div>    
         <div class="login">    
         <form id="login" method="get">   <!-- action="login.php"-->
             <label><b>User Name     
@@ -27,7 +33,7 @@
             <input type="checkbox" id="check">    
             <span>Remember me</span>    
             <br><br>    
-            Forgot <a href="#">Password</a>    
+            <a href="#">Forgot Password?</a>    
         </form>     
     </div>    
     </body>    

@@ -1,0 +1,104 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://i.pinimg.com/originals/97/8f/5a/978f5adf1b73f7dd8709217fc6d8c30d.jpg);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /*background-color:#6abadeba;*/
+    font-family: 'Arial';
+}
+
+.login {
+    border: 2px solid;
+    width: 382px;
+    overflow: hidden;
+    margin: auto;
+    margin: 20 0 0 450px;
+    padding: 80px;
+    background-image: url(https://i.redd.it/8woj270sjbu31.jpg);
+    /*background: rgb(226, 185, 50);*/
+    border-radius: 15px ;
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+}
+
+label{
+    color: #ffffff;
+    font-size: 17px;
+}
+
+#Uname {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#Pass {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#log {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: blue;
+}
+
+span {
+    color: white;
+    font-size: 17px;
+}
+
+a {
+    float: right;
+    background-color: #ffffff; /*Forgot Password's individual background color*/
+}
+
+.box-outer {
+    border: 1px solid;
+    border-color: black;
+    width: 40.0em;
+    height: 5em;
+    margin: auto;
+    padding: 0em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    padding-top: 1em;
+    
+}
+
+#Announcement {
+    line-height:1.5em;
+    font-style:italic;
+    font-weight:500;
+    background:rgb(226, 185, 50);
+}
+
+.boxbar {
+    padding: 10.5em;
+    line-height: 2em;
+    /*background: rgb(0, 8, 2);*/
+    border: black;
+    border-radius: 10em;
+}
