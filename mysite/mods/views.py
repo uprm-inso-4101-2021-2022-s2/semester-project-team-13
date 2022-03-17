@@ -63,3 +63,7 @@ def modDetails(request, mod_id):
 def About(request):
     template = loader.get_template('mods/About.html')
     return HttpResponse(template.render(None, request))
+
+def About(request):
+    template = loader.get_template('mods/About.html')
+    return HttpResponse(template.render(None, request))
