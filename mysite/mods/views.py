@@ -59,3 +59,7 @@ def modDetails(request, mod_id):
     except Mod.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, 'mods/details.html', {'mod' : mod})
+
+def About(request):
+    template = loader.get_template('mods/About.html')
+    return HttpResponse(template.render(None, request))
