@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModAlley is a site where users can share and discuss about their favorite mods from their favorite games.">
+    <title>ModAlley</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mods/AboutStyle.css' %}"> <!--For django, use: href="{% static 'mods/IndexStyle.css' %}"-->
+</head>
+<body>
+    
+    <div id="Doc">
+        <div id="head">
+            <div id="Logo">
+                <a href="//ModAlley.modable1234" title="home">
+                    <img alt="Hackerman" src="https://i.pinimg.com/736x/c8/1f/e7/c81fe7213446eb5fa98b224f3ba3e07a.jpg" width="300" height="350"> <!--Links to an image, with sizing specifications-->
+                </a>
+            </div>
+        </div>
+        
+        <div id="body">
+            <div id="Announcement" class="box-outer">
+                <div class="box-inner">
+                    <div class="boxbar">
+                        <h2>What is ModAlley?</h2>
+                    </div>
+                    <div class="boxcontent1">
+                        <div id="WritingPrompt">
+                            <p>ModAlley is a place where a user can search for their favorite mods for their favorite games. There are boards for discussing about the games that you prefer and their mods, as well as any other relevant topic. Welcome, and enjoy your stay!</p>
+                            <br>
+                            <p>Make sure to Register or Log_In, and get acquainted with our Rules. If you wish to know about how to use the site, read our FAQ</p>
+                            <br> <!--You can link the keywords with: <a href="/FAQ"> or <a href="/Rules"> for reference-->
+                        </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+    </div>
+</body>
+</html>

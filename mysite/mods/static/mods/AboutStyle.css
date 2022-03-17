@@ -1,0 +1,107 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+ margin:0;
+ padding:0
+}
+
+body {
+    /* The image used */
+    background-image: url(https://i.pinimg.com/originals/97/8f/5a/978f5adf1b73f7dd8709217fc6d8c30d.jpg);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background:#eef2ff url(https://c4.wallpaperflare.com/wallpaper/1015/936/992/neon-synthwave-new-retro-wave-wallpaper-preview.jpg) top center repeat-x;*/
+    /*background-color: rgb(219, 66, 155);*/
+}
+
+#Doc {
+    margin:auto;
+    text-align:center;
+    width:57.69em;
+    width:56.301em;
+    min-width:750px;
+    font: 13px/1.231 arial,helvetica,clean,sans-serif;
+}
+
+#Announcement {
+    line-height:1.5em;
+    font-style:italic;
+    font-weight:500;
+    background:rgb(248, 247, 246)
+}
+
+.box-outer {
+    border:1px solid;
+    zoom:100%;
+    margin-bottom:.5em;
+    padding-bottom:.5em
+}
+
+/*.box-inner {
+margin: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+padding: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+color: #000;
+}*/
+
+.boxbar {
+    padding-left:1.5em;
+    line-height:2em;
+    position:relative;
+    zoom:100%;
+    background:rgb(226, 185, 50);
+    position: relative;
+   }
+
+.boxcontent {
+    padding:2.5em;
+    padding-top:1.25em;
+    padding-bottom:0;
+    line-height:130%;
+    margin-top:5px;
+    text-align:center;
+   }
+
+
+#Logo {
+    font-size: 1px;
+    line-height: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 10.5em;
+}
