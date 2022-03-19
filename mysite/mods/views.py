@@ -8,8 +8,7 @@ from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView
-# Create your views here.
-# from mysite.mods.models import Mod
+from django.db.models import Q
 
 
 def index(request):
@@ -62,8 +61,6 @@ def gameList(request):
     return HttpResponse(template.render(context, request))
 
 
-
-
 def modDetails(request, mod_id):
     try:
         mod = Mod.objects.get(pk=mod_id)
@@ -77,21 +74,20 @@ def About(request):
     return HttpResponse(template.render(None, request))
 
 
+# class SearchResults(ListView):
+#     model = Mod
+#     template_name = 'search.html'
+#
+#     def get_queryset(self):
+#         query = self.request.GET.get('q')
+#         search_result = Mod.objects.filter(
+#             Q(mod_title__icontains=query) | Q(mod_game__icontains=query)
+#         )
+#         return search_result
+
 def search(request):
     if request.method == "GET":
-        form = SearchForm()
-        return render(
-            request, "mods/search.html",
-            {"form": SearchForm}
-        )
-    elif request.method == "POST":
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('mods/search_results.html')
-        # mod_list = Mod.objects.filter_by(mod_game='Minecraft')[:5]
-        # template = loader.get_template('mods/search_results.html')
-        # context = {
-        #     'mod_list': mod_list,
-        # }
-        # return HttpResponse(template.render(context, request))
-
+        query = request.GET.get('search')
+        # results = Mod.objects.filter(Q(mod_title__icontains=query) | Q(mod_author__icontains=query))
+        results = Mod.objects.filter(mod_title=query)
+        return render(request, 'search.html', {'results': results})

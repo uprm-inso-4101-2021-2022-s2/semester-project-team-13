@@ -8,15 +8,18 @@
     <title>Mod List</title>
 </head>
 <body>
-
+    <form action="{% url 'search' %}" class="form-inline" method="get">
+        <input name="search" type="text" class="form-control" id="" placeholder="Keyword">
+        <button type="Submit" class="btn btn-success btn-lg mb-2">Search</button>
+   </form>
+    {% if mod_list %}
+        <ul>
+        {% for mod in mod_list %}
+            <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No mods are available.</p>
+    {% endif %}
 </body>
 </html>
-{% if mod_list %}
-    <ul>
-    {% for mod in mod_list %}
-        <li><a href="/mods/{{ mod.id }}/">{{ mod.mod_title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No mods are available.</p>
-{% endif %}
