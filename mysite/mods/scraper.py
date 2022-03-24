@@ -24,6 +24,7 @@ def nexus_scraper(url):
 
     return result
 
+
 def nexus_scraper(url, start, end):
 
     base_url = 'https://www.nexusmods.com/stardewvalley/mods/11288'
@@ -35,10 +36,10 @@ def nexus_scraper(url, start, end):
     scraper = AutoScraper()
     result = scraper.build(base_url, wanted_list)
 
-    while(start<end):
+    while(start<=end):
         iter_url = url + str(start)
         result = scraper.get_result_exact(iter_url)
-        newmod = Mod(mod_title=result[0], mod_author=result[1], mod_source=url, mod_game=result[3],
+        newmod = Mod(mod_title=result[0], mod_author=result[1], mod_source=iter_url, mod_game=result[3],
                      mod_description=result[4])
         newmod.save()
         newmod.id
