@@ -45,7 +45,7 @@ def register(request):
 
 
 def modList(request):
-    mod_list = Mod.objects.order_by('mod_title')[:5]
+    mod_list = Mod.objects.order_by('mod_title')
     template = loader.get_template('mods/modList.html')
     context = {
         'mod_list': mod_list,
@@ -53,7 +53,7 @@ def modList(request):
     return HttpResponse(template.render(context, request))
 
 def gameList(request):
-    mod_list = Mod.objects.order_by('mod_game')[:5]
+    mod_list = Mod.objects.order_by('mod_game')
     template = loader.get_template('mods/gameList.html')
     context = {
         'mod_list': mod_list,
