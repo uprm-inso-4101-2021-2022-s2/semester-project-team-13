@@ -10,12 +10,13 @@
 <body>
     <form type="get" action="search.html" style="margin: 0">
         <input  id="search" type="text" name="search"  placeholder="Search..." >
-        <button id="search_submit" type="submit" >Submit</button>
+        <button id="search_submit" type="submit" >Search</button>
     </form>
     {% if game_list %}
         <ul>
         {% for mod in game_list %}
-            <li><a href="/mods/search/">{{mod.mod_game}}</a></li>
+            <li><a href="mods/search.html?search={{ mod.mod_game }}">{{mod.mod_game}}</a></li>
+
         {% endfor %}
         </ul>
     {% else %}
