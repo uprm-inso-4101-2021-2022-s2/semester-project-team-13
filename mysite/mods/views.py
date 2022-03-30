@@ -21,7 +21,6 @@ def index(request):
 
 
 def LoginForm(request):
-    mod_list = Mod.objects.order_by('mod_title')[:5]
     template = loader.get_template('mods/LoginForm.html')
     return HttpResponse(template.render(None, request))
 
@@ -44,8 +43,8 @@ def register(request):
             return HttpResponse(template.render(None, request))
 
 
-def modList(request, search):
-    mod_list = Mod.objects.filter_by(mod_game=search).order_by('mod_title')
+def modList(request):
+    mod_list = Mod.objects.order_by('mod_title')
     template = loader.get_template('mods/modList.html')
     context = {
         'mod_list': mod_list,
@@ -54,10 +53,10 @@ def modList(request, search):
 
 
 def gameList(request):
-    mod_list = Mod.objects.all().values('mod_game').distinct()
+    game_list = Mod.objects.all().values('mod_game').distinct().order_by('mod_game')
     template = loader.get_template('mods/gameList.html')
     context = {
-        'mod_list': mod_list,
+        'game_list': game_list,
     }
     return HttpResponse(template.render(context, request))
 
@@ -88,7 +87,12 @@ def About(request):
 
 def search(request):
     if request.method == "GET":
-        query = request.GET.get('search')
+        query = request.GET.get('search', None)
         # results = Mod.objects.filter(Q(mod_title__icontains=query) | Q(mod_author__icontains=query))
-        results = Mod.objects.filter(mod_title=query)
-        return render(request, 'search.html', {'results': results})
+
+        game_list = Mod.objects.filter(mod_game=query)
+        context = {
+            'game_list': game_list,
+        }
+        template = loader.get_template('mods/search.html')
+        return HttpResponse(template.render(context, request))

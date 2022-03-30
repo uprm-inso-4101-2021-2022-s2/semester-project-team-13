@@ -8,10 +8,14 @@
     <title>Game List</title>
 </head>
 <body>
-    {% if mod_list %}
+    <form type="get" action="search.html" style="margin: 0">
+        <input  id="search" type="text" name="search"  placeholder="Search..." >
+        <button id="search_submit" type="submit" >Submit</button>
+    </form>
+    {% if game_list %}
         <ul>
-        {% for mod in mod_list %}
-            <li><a href="/mods/{{ mod.id }}/">{{mod.mod_game}}</a></li>
+        {% for mod in game_list %}
+            <li><a href="/mods/search/">{{mod.mod_game}}</a></li>
         {% endfor %}
         </ul>
     {% else %}

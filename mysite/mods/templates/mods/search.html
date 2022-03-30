@@ -1,56 +1,15 @@
 {{ error }}
+<center><h1>Search Results</h1></center>
 
-{ % if post % }
-<center><h1>Search Result</h1></center>
-<br>
-{ % for i in post % }
-    <center> <h2> href="/modList"{{i.mod_title}}</h2></center>
-{ % endfor % }
-    { % else % }
-        <center><h1>Nothing Found</h1></center>
-{ % endif % }
+{% if game_list %}
+    <ul>
+    {% for mod in game_list %}
+        <li><a href="/mods/search/">{{mod.mod_title}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No games are available.</p>
+{% endif %}
 
 
 
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>Search</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <div class="container">-->
-<!--        <div class="col-md-8 offset-md-2">-->
-<!--            {% if query %}-->
-<!--                <h2>-->
-<!--                {% with results.count() as total_results %}-->
-<!--                Found {{ total_results }} result{{ total_results|pluralize }}-->
-<!--                {% endwith %}-->
-<!--                </h2>-->
-<!--                {% for c in results %}-->
-<!--                    <a href="{{c.get_url}}"><h3>{{c.book_name}}</h3></a>-->
-<!--                    <h3>{{c.author_name}}</h3>-->
-<!--                    {% empty %}-->
-<!--                    <h3>No results found.</h3>-->
-<!--               {% endfor %}-->
-<!--            {% endif %}-->
-<!--            <form action="{% url 'modList' %}" class="form-inline" method="get">-->
-<!--            <button type="submit" class="btn btn-primary btn-lg mb-2">Back</button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</body>-->
-<!--</html>-->
-
-<!--&lt;!&ndash;{% extends 'base.html' %}&ndash;&gt;-->
-
-<!--&lt;!&ndash;<h1>Search</h1>&ndash;&gt;-->
-
-<!--&lt;!&ndash;<form action="search.html" method="post">&ndash;&gt;-->
-<!--&lt;!&ndash;    <label for="search">Search</label>&ndash;&gt;-->
-<!--&lt;!&ndash;    <input id="search" type="text" name="search">&ndash;&gt;-->
-<!--&lt;!&ndash;    <input type="submit" value="Search">&ndash;&gt;-->
-<!--&lt;!&ndash;</form>&ndash;&gt;-->
