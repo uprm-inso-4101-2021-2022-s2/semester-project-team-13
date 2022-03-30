@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Discussion</title>
+</head>
+<body>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="New Discussion">
+</body>
+</html>

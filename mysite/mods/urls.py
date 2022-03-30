@@ -17,4 +17,6 @@ urlpatterns = [
     path('publish.html', views.publish, name='publish'),
     path('boards.html', views.boards, name='boards'),
     path('boards/<int:dis_id>/', views.discussion, name='discussion'),
+    path('new_discussion.html', views.new_discussion, name= 'new_discussion'),
+    path('new_reply.html', views.new_reply, name= 'new_reply')
 ]

@@ -3,7 +3,7 @@ from .models import Mod, Discussion, Reply
 from django.template import loader
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.http import HttpResponse
-from .forms import CustomUserCreationForm, PublishForm
+from .forms import CustomUserCreationForm, PublishForm, DiscussionForm, ReplyForm
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -121,3 +121,31 @@ def discussion(request, dis_id):
         'reply_list': reply_list,
     }
     return HttpResponse(template.render(context, request))
+
+
+def new_discussion(request):
+    if request.method == "GET":
+        return render(
+            request, "mods/new_discussion.html",
+            {"form": DiscussionForm}
+        )
+    elif request.method == "POST":
+        form = DiscussionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            template = loader.get_template('mods/discussion.html')
+            return HttpResponse(template.render(None, request))
+
+
+def new_reply(request):
+    if request.method == "GET":
+        return render(
+            request, "mods/new_reply.html",
+            {"form": ReplyForm}
+        )
+    elif request.method == "POST":
+        form = ReplyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            template = loader.get_template('mods/boards.html')
+            return HttpResponse(template.render(None, request))

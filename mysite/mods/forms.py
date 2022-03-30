@@ -24,4 +24,10 @@ class PublishForm(ModelForm):
 class DiscussionForm(ModelForm):
     class Meta:
         model = Discussion
-        fields = "__all__"
+        fields = ['dis_title', 'dis_author', 'dis_type', 'dis']
+
+
+class ReplyForm(ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['rep_parent','rep_title', 'rep_author', 'rep']
