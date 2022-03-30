@@ -1,5 +1,5 @@
 from django.urls import path
-from django.conf.urls import include
+from django.conf.urls import include, url
 #url
 from . import views
 # from .views import SearchResults
@@ -14,6 +14,5 @@ urlpatterns = [
     path('About.html', views.About, name = 'about'),
     path('search.html', views.search, name='search'),
     path('gameList.html', views.gameList, name='modList'),
-
-
+    path('publish.html', views.publish, name='publish'),
 ]

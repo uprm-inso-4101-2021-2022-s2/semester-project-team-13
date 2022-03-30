@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.forms import ModelForm
+from .models import Mod
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -11,3 +13,9 @@ class SearchForm(forms.Form):
     search = forms.CharField(label="Search", max_length=100)
     # class Meta:
     #     fields = ("search",)
+
+
+class PublishForm(ModelForm):
+    class Meta:
+        model = Mod
+        fields = ['mod_title', 'mod_author', 'mod_game', 'mod_source', 'mod_description']

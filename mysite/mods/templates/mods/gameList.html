@@ -15,7 +15,7 @@
     {% if game_list %}
         <ul>
         {% for mod in game_list %}
-            <li><a href="mods/search.html?search={{ mod.mod_game }}">{{mod.mod_game}}</a></li>
+            <li><a href="mods/search.html?search={{ mod.mod_game }}" value="{{ mod.mod_game }}">{{mod.mod_game}}</a></li>
 
         {% endfor %}
         </ul>

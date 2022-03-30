@@ -3,7 +3,7 @@ from .models import Mod
 from django.template import loader
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.http import HttpResponse
-from .forms import CustomUserCreationForm, SearchForm
+from .forms import CustomUserCreationForm, PublishForm
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -96,3 +96,17 @@ def search(request):
         }
         template = loader.get_template('mods/search.html')
         return HttpResponse(template.render(context, request))
+
+
+def publish(request):
+    if request.method == "GET":
+        return render(
+            request, "mods/publish.html",
+            {"form": PublishForm}
+        )
+    elif request.method == "POST":
+        form = PublishForm(request.POST)
+        if form.is_valid():
+            form.save()
+            template = loader.get_template('mods/modList.html')
+            return HttpResponse(template.render(None, request))
