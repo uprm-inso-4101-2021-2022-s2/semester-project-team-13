@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion</title>
+</head>
+<body>
+<h1>{{reply.rep_parent.dis_title}}</h1>
+{{reply.rep_parent.dis}}
+{% if reply %}
+        <ul>
+        {% for reply in reply %}
+            {{reply.rep_date}}
+            {{reply.rep}}
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No replys.</p>
+    {% endif %}
+</body>
+</html>

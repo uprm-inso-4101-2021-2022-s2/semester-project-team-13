@@ -15,4 +15,6 @@ urlpatterns = [
     path('search.html', views.search, name='search'),
     path('gameList.html', views.gameList, name='modList'),
     path('publish.html', views.publish, name='publish'),
+    path('boards.html', views.boards, name='boards'),
+    path('boards/<int:dis_id>/',views.discussion, name='discussion'),
 ]

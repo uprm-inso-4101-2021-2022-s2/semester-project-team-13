@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Mod
+from .models import Mod, Discussion, Reply
 from django.template import loader
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.http import HttpResponse
@@ -74,17 +74,6 @@ def About(request):
     return HttpResponse(template.render(None, request))
 
 
-# class SearchResults(ListView):
-#     model = Mod
-#     template_name = 'search.html'
-#
-#     def get_queryset(self):
-#         query = self.request.GET.get('q')
-#         search_result = Mod.objects.filter(
-#             Q(mod_title__icontains=query) | Q(mod_game__icontains=query)
-#         )
-#         return search_result
-
 def search(request):
     if request.method == "GET":
         query = request.GET.get('search', None)
@@ -112,5 +101,22 @@ def publish(request):
             return HttpResponse(template.render(None, request))
 
 
-# def discussion(request):
-#
+def boards(request):
+    game_dis = Discussion.objects.all().filter(dis_type='Game').order_by('dis_title')[:5]
+    gen_dis = Discussion.objects.all().filter(dis_type='General').order_by('dis_date')[:5]
+    mod_dis = Discussion.objects.all().filter(dis_type='Mod').order_by('dis_date')[:5]
+    template = loader.get_template('mods/boards.html')
+    context = {
+        'game_dis': game_dis,
+        'gen_dis': gen_dis,
+        'mod_dis': mod_dis
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def discussion(request, dis_id):
+    try:
+        reply = Reply.objects.get(rep_parent=dis_id).order_by('dis_date')
+    except Reply.DoesNotExist:
+        raise Http404("No Reply")
+    return render(request, 'mods/discussion.html', {'reply' : reply})

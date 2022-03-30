@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion Board</title>
+</head>
+<body>
+<h1>General Discussions</h1>
+ {% if gen_dis %}
+        <ul>
+        {% for dis in gen_dis %}
+            <li><a href="mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No discussions.</p>
+    {% endif %}
+<h1>Game Discussions</h1>
+ {% if game_dis %}
+        <ul>
+        {% for dis in game_dis %}
+           <li><a href="mods/boards/{{dis.id }}/">{{dis.dis_title}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No discussions.</p>
+    {% endif %}
+<h1>Mod Discussions</h1>
+ {% if mod_dis %}
+        <ul>
+        {% for dis in mod_dis %}
+           <li><a href="mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No discussions.</p>
+    {% endif %}
+</body>
+</html>
