@@ -44,16 +44,17 @@ def register(request):
             return HttpResponse(template.render(None, request))
 
 
-def modList(request):
-    mod_list = Mod.objects.order_by('mod_title')
+def modList(request, search):
+    mod_list = Mod.objects.filter_by(mod_game=search).order_by('mod_title')
     template = loader.get_template('mods/modList.html')
     context = {
         'mod_list': mod_list,
     }
     return HttpResponse(template.render(context, request))
 
+
 def gameList(request):
-    mod_list = Mod.objects.order_by('mod_game')
+    mod_list = Mod.objects.all().values('mod_game').distinct()
     template = loader.get_template('mods/gameList.html')
     context = {
         'mod_list': mod_list,
