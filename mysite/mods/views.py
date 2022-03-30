@@ -110,3 +110,7 @@ def publish(request):
             form.save()
             template = loader.get_template('mods/modList.html')
             return HttpResponse(template.render(None, request))
+
+
+# def discussion(request):
+#
