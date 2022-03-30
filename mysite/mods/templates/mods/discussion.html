@@ -5,11 +5,11 @@
     <title>Discussion</title>
 </head>
 <body>
-<h1>{{reply.rep_parent.dis_title}}</h1>
-{{reply.rep_parent.dis}}
-{% if reply %}
+<h1>Discussion</h1>
+{% if reply_list %}
         <ul>
-        {% for reply in reply %}
+        {% for reply in reply_list %}
+            <p>{{reply.rep_parent}}</p>
             {{reply.rep_date}}
             {{reply.rep}}
         {% endfor %}
@@ -17,5 +17,7 @@
     {% else %}
         <p>No replys.</p>
     {% endif %}
+
+
 </body>
 </html>

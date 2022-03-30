@@ -115,8 +115,9 @@ def boards(request):
 
 
 def discussion(request, dis_id):
-    try:
-        reply = Reply.objects.get(rep_parent=dis_id).order_by('dis_date')
-    except Reply.DoesNotExist:
-        raise Http404("No Reply")
-    return render(request, 'mods/discussion.html', {'reply' : reply})
+    reply_list = Reply.objects.filter(rep_parent=dis_id).order_by('rep_date')
+    template = loader.get_template('mods/discussion.html')
+    context = {
+        'reply_list': reply_list,
+    }
+    return HttpResponse(template.render(context, request))

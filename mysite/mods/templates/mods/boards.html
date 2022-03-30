@@ -9,7 +9,7 @@
  {% if gen_dis %}
         <ul>
         {% for dis in gen_dis %}
-            <li><a href="mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
+            <li><a href="/mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -19,7 +19,7 @@
  {% if game_dis %}
         <ul>
         {% for dis in game_dis %}
-           <li><a href="mods/boards/{{dis.id }}/">{{dis.dis_title}}</a></li>
+           <li><a href="/mods/boards/{{dis.id }}/">{{dis.dis_title}}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -29,7 +29,7 @@
  {% if mod_dis %}
         <ul>
         {% for dis in mod_dis %}
-           <li><a href="mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
+           <li><a href="/mods/boards/{{ dis.id }}/">{{dis.dis_title}}</a></li>
         {% endfor %}
         </ul>
     {% else %}
