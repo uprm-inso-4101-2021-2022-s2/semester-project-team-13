@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModAlley is a site where users can share and discuss about their favorite mods from their favorite games.">
+    <title>ModAlley</title>
+    <!-- {% load static %} -->
+    <link rel="stylesheet" type="text/css" href="NewIndexStyle.css"> <!--For django, use: href="{% static 'mods/IndexStyle.css' %}"-->
+</head>
+<body>
+    
+    <div id="Doc">
+        <div id="head" class="barhead" style="width: 100%; height: 98px; margin: 0px auto;">
+            <div id="Logo">
+                <a href="//ModAlley.modable1234" title="home">
+                    <!--img alt="Hackerman" src="https://images.wallpapersden.com/image/download/synthwave-4k_a2tnZ2mUmZqaraWkpJRqZmdlrWdtbWU.jpg" width="300" height="350"--> <!--img alt="Hackerman" src="https://i.pinimg.com/736x/c8/1f/e7/c81fe7213446eb5fa98b224f3ba3e07a.jpg" width="300" height="350"--> <!--Links to an image, with sizing specifications-->
+                </a>
+                <div id="Headbox1" class="Headglasstype">
+                    <h1>Welcome to ModAlley!</h1>
+                </div>
+                <a class="SignIn" method="get" href="LoginForm.html">
+                    <input type="button" name="log" id="log" value="Sign-In" style="float:right !important; font-size: 22px;">
+                </a>
+            </div>
+        </div>
+        
+        <div id="body">
+            <div id="Announcement" class="box-outer">
+                <div class="box-inner">
+                    <div class="boxbar">
+                        <h2>What is ModAlley?</h2>
+                    </div>
+                    <div class="boxcontent1">
+                        <div id="WritingPrompt">
+                            <p>ModAlley is a place where a user can search for their favorite mods for their favorite games. There are boards for discussing about the games that you prefer and their mods, as well as any other relevant topic. Welcome, and enjoy your stay!</p>
+                            <br>
+                            <p>Make sure to Register or Log_In, and get acquainted with our Rules. If you wish to know about how to use the site, read our FAQ</p>
+                            <br> <!--You can link the keywords with: <a href="/FAQ"> or <a href="/Rules"> for reference-->
+                        </div>
+                 </div>
+                </div>
+            </div>
+
+            <div id="Spacebox1" class="glasstype" style="width: 728px; height: 90px; margin: 10px auto; pointer-events: none;"></div>
+
+            <div id="Boards" class="boards-box-outer">
+                <div class="box-inner">
+                    <div class="boxbar">
+                        <h2 style="text-align: left;">Boards</h2>
+                    </div>
+                    <div class="boxcontent1">
+                        <div id="WritingPrompt">
+                            <a href="url" style="font-style: italic;"><p style="text-align: left;">Discussion_boards</p></a>
+                            <br>
+                            <p>Come discuss about your favorite games and their mods! If you wish to talk about something else, come to our off topic sections and hangout with everyone else, it'll be a nice time.</p>
+                            <br>
+                            <a href="url" style="font-style: italic;"><p style="text-align: left;">Mod_Overview</p></a>
+                            <br>
+                            <p style="text-align: left;">A place where you can see if the mods you're looking for are here. They aren't here? Then consider posting one yourself below!</p>
+                            <br>
+                            <a href="url" style="font-style: italic;"><p style="text-align: left;">Mod_Posts</p></a>
+                            <br>
+                            <p style="text-align: left;">Post links to mods about your favorite games; what makes it cool? what makes it so great? Tell us all about it!</p>
+                            <br> <!--You can link the keywords with: <a href="/FAQ"> or <a href="/Rules"> for reference-->
+                        </div>
+                 </div>
+                </div>
+            </div>
+
+            <div id="Spacebox1" class="glasstype" style="width: 728px; height: 90px; margin: 10px auto; pointer-events: none;"></div>
+        </div>
+
+        <!--this is a test-->
+        <div id="footer">
+            <!--list of links or redirects to main website, other tabs, etc. Possibly wont be used  <ul><li class="fill">-->
+            <ul><li class="fill"><a href="/">Home</a></li> <!--Setting up url list as pointers for the hyperlink-->
+            <li><a href="">News</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Rules</a></li>
+            </ul>
+            <br class="clear-bug"> <!--line break here after the list is finished-->
+            <div id="copyright"> <!--copyright and feedback section -->
+                <a href="">About</a> 
+                • <a href="">Feedback</a> 
+                • <a href="">Legal</a> 
+                • <a href="">Contact</a><br><br><br> <!--Could possibly be omitted.-->
+                <p style="color: crimson; font-size: 25px;"> Copyright UPRM 2022, all rights reserved.</p>
+            </div> 
+        </div>
+    </div>
+</body>
+</html>
