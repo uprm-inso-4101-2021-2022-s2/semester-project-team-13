@@ -149,3 +149,7 @@ def new_reply(request):
             form.save()
             template = loader.get_template('mods/boards.html')
             return HttpResponse(template.render(None, request))
+
+
+def NewIndex(request):
+    return render(request, 'mods/NewIndex.html')
