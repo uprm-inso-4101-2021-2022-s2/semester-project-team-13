@@ -21,8 +21,18 @@ def index(request):
 
 
 def LoginForm(request):
-    template = loader.get_template('mods/LoginForm.html')
-    return HttpResponse(template.render(None, request))
+    if request.method == "GET":
+        return render(
+            request, "mods/LoginForm.html",
+            {"form": CustomUserCreationForm}
+        )
+    elif request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            template = loader.get_template('mods/NewIndex.html')
+            return HttpResponse(template.render(None, request))
+
 
 
 def dashboard(request):
@@ -32,14 +42,14 @@ def dashboard(request):
 def register(request):
     if request.method == "GET":
         return render(
-            request, "mods/register.html",
+            request, "mods/LoginForm.html",
             {"form": CustomUserCreationForm}
         )
     elif request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            template = loader.get_template('mods/dashboard.html')
+            template = loader.get_template('mods/NewIndex.html')
             return HttpResponse(template.render(None, request))
 
 
