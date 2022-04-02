@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Mod
+from .forms import PublishForm
 
 
 class ModTestClass(TestCase):
@@ -14,52 +15,29 @@ class ModTestClass(TestCase):
                            mod_description='test desc.')
         pass
 
-    def test_mod_title_label(self):
+    def test_mod_title(self):
         mod = Mod.objects.get(id=1)
-        field_label = mod._meta.get_field('mod_title').verbose_name
-        self.assertEqual(field_label, 'mod_title')
+        self.assertEqual(mod.mod_title, 'test title')
 
-    def test_mod_author_label(self):
+    def test_mod_author(self):
         mod = Mod.objects.get(id=1)
-        field_label = mod._meta.get_field('mod_author').verbose_name
-        self.assertEqual(field_label, 'mod_author')
+        self.assertEqual(mod.mod_author, 'test author')
 
-    def test_mod_game_label(self):
+    def test_mod_game(self):
         mod = Mod.objects.get(id=1)
-        field_label = mod._meta.get_field('mod_game').verbose_name
-        self.assertEqual(field_label, 'mod_game')
+        self.assertEqual(mod.mod_game, 'test game')
 
-    def test_mod_source_label(self):
+    def test_mod_source(self):
         mod = Mod.objects.get(id=1)
-        field_label = mod._meta.get_field('mod_source').verbose_name
-        self.assertEqual(field_label, 'mod_source')
+        self.assertEqual(mod.mod_source, 'test source')
 
-    def test_mod_description_label(self):
+    def test_mod_description(self):
         mod = Mod.objects.get(id=1)
-        field_label = mod._meta.get_field('mod_description').verbose_name
-        self.assertEqual(field_label, 'mod_description')
+        self.assertEqual(mod.mod_description, 'test desc.')
+
+    def test_mod_str(self):
+       mod = Mod.objects.get(id=1)
+       self.assertEqual(mod.__str__(), 'test title')
 
 
-#
-# class YourTestClass(TestCase):
-#     @classmethod
-#     def setUpTestData(cls):
-#         print("setUpTestData: Run once to set up non-modified data for all class methods.")
-#         pass
-#
-#     def setUp(self):
-#         print("setUp: Run once for every test method to setup clean data.")
-#         pass
-#
-#     def test_false_is_false(self):
-#         print("Method: test_false_is_false.")
-#         self.assertFalse(False)
-#
-#     def test_false_is_true(self):
-#         print("Method: test_false_is_true.")
-#         self.assertTrue(False)
-#
-#     def test_one_plus_one_equals_two(self):
-#         print("Method: test_one_plus_one_equals_two.")
-#         self.assertEqual(1 + 1, 2)
-#
+# class RegisterFormTestClass(TestCase):
