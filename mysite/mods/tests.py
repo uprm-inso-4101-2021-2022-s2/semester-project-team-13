@@ -1,4 +1,6 @@
 from django.test import TestCase
+from django.urls import reverse
+
 from .models import Mod
 from .forms import CustomUserCreationForm, PublishForm, ReplyForm, DiscussionForm
 
@@ -67,20 +69,28 @@ class PublishFormTestClass(TestCase):
 
 
 class NewIndexViewTestClass(TestCase):
-    def setUp(self):
-        number_of_mods = 10
+    # def setUp(self):
+    #     number_of_mods = 10
+    #
+    #     for mod_id in range(number_of_mods):
+    #         Mod.objects.create(
+    #             mod_title= f'title {mod_id}',
+    #             mod_author= f'author {mod_id}',
+    #             mod_game=f'game {mod_id}',
+    #             mod_source=f'source {mod_id}',
+    #             mod_description=f'description {mod_id}'
+    #         )
+    #     pass
 
-        for mod_id in range(number_of_mods):
-            Mod.objects.create(
-                mod_title= f'title {mod_id}',
-                mod_author= f'author {mod_id}',
-                mod_game=f'game {mod_id}',
-                mod_source=f'source {mod_id}',
-                mod_description=f'description {mod_id}'
-            )
-        pass
-
-    def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/mods/Newndex.html')
+    def test_NewIndex_view_url_exists_at_desired_location(self):
+        response = self.client.get('/mods/NewIndex.html')
         self.assertEqual(response.status_code, 200)
 
+    def test_NewIndex_view_accessible_by_name(self):
+        response = self.client.get(reverse('NewIndex'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_NewIndex_view_uses_correct_template(self):
+        response = self.client.get(reverse('NewIndex'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'mods/NewIndex.html')
