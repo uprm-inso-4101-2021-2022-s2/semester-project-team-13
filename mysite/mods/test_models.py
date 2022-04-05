@@ -148,7 +148,7 @@ class ReplyTestClass(TestCase):
        rep = Reply.objects.get(id=1)
        self.assertEqual(rep.__str__(), 'title')
 
-    def test_dis_object_creation_count(self):
+    def test_rep_object_creation_count(self):
         self.assertEqual(5,Reply.objects.count())
 
 

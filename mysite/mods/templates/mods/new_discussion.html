@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>New Discussion</title>
 </head>
-<body>
+<form method="post">
     {% csrf_token %}
     {{form}}
     <input type="submit" value="New Discussion">
-</body>
+</form>
 </html>

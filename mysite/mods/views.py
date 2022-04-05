@@ -42,7 +42,7 @@ def dashboard(request):
 def register(request):
     if request.method == "GET":
         return render(
-            request, "mods/LoginForm.html",
+            request, "mods/register.html",
             {"form": CustomUserCreationForm}
         )
     elif request.method == "POST":
@@ -143,7 +143,7 @@ def new_discussion(request):
         form = DiscussionForm(request.POST)
         if form.is_valid():
             form.save()
-            template = loader.get_template('mods/discussion.html')
+            template = loader.get_template('mods/boards.html')
             return HttpResponse(template.render(None, request))
 
 
@@ -157,6 +157,9 @@ def new_reply(request):
         form = ReplyForm(request.POST)
         if form.is_valid():
             form.save()
+            template = loader.get_template('mods/boards.html')
+            return HttpResponse(template.render(None, request))
+        else:
             template = loader.get_template('mods/boards.html')
             return HttpResponse(template.render(None, request))
 
