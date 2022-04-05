@@ -54,6 +54,44 @@ class ModTestClass(TestCase):
         self.assertEqual(11,Mod.objects.count())
 
 
+class DiscussionTestClass(TestCase):
+    def setUp(self):
+        Discussion.objects.create(dis_title= 'title',
+                dis_author= 'author',
+                dis_type= 'Mod',
+                dis= 'Discussion'
+        )
+        number_of_dis = 10
+
+        for id in range(number_of_dis):
+            Discussion.objects.create(
+                dis_title=f'title {id}',
+                dis_author=f'author {id}',
+                dis_type='Mod',
+                dis=f'Discussion  {id}'
+            )
+        pass
+
+    def test_dis_title(self):
+        dis = Discussion.objects.get(id=1)
+        self.assertEqual(dis.dis_title, 'title')
+
+    def test_dis_author(self):
+        dis = Discussion.objects.get(id=1)
+        self.assertEqual(dis.dis_author, 'author')
+
+    def test_dis_discussion(self):
+        dis = Discussion.objects.get(id=1)
+        self.assertEqual(dis.dis, 'Discussion')
+
+    def test_dis_str(self):
+       dis = Discussion.objects.get(id=1)
+       self.assertEqual(dis.__str__(), 'title')
+
+    def test_dis_object_creation_count(self):
+        self.assertEqual(11,Discussion.objects.count())
+
+
 class PublishFormTestClass(TestCase):
 
     def test_publish_form_title_field(self):
