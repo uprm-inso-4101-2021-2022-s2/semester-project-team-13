@@ -9,12 +9,6 @@ class CustomUserCreationForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + ("email",)
 
 
-class SearchForm(forms.Form):
-    search = forms.CharField(label="Search", max_length=100)
-    # class Meta:
-    #     fields = ("search",)
-
-
 class PublishForm(ModelForm):
     class Meta:
         model = Mod

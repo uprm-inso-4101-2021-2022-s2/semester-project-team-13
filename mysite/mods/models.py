@@ -32,7 +32,7 @@ class Discussion(models.Model):
 
 
 class Reply(models.Model):
-    rep_parent = models.ForeignKey(Discussion, blank=True, null=True, on_delete=models.CASCADE)
+    rep_parent = models.ForeignKey(Discussion, on_delete=models.CASCADE)
     rep_author = models.CharField(max_length=100, default='Guest')
     rep_title = models.CharField(max_length=200)
     rep_date = models.DateTimeField(auto_now=True, null=True)
